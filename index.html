@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA MARKET — Smart Shopping &amp; AI Virtual Olam</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= SUZUVCHAN ORQA FON ================= -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-a" id="orbA"></div>
+    <div class="ambient-orb orb-b" id="orbB"></div>
+    <div class="ambient-orb orb-c" id="orbC"></div>
+  </div>
+
+  <!-- ================= YUQORI PANEL ================= -->
+  <div class="top-strip">
+    <div class="container top-strip-inner">
+      <span data-i18n="topDelivery">📍 Toshkent va O‘zbekiston bo‘ylab 1 kunda bepul yetkazib berish</span>
+
+      <div class="top-controls">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Tilni tanlash">
+          <button type="button" class="lang-btn active" data-lang="uz">UZB</button>
+          <button type="button" class="lang-btn" data-lang="ru">RUS</button>
+          <button type="button" class="lang-btn" data-lang="en">ENG</button>
+        </div>
+
+        <button type="button" class="theme-toggle" id="themeToggle">
+          <span id="themeIcon" aria-hidden="true">☀️</span>
+          <span id="themeText" data-i18n="themeLight">Yorug‘ fon</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="mainHeader">
+    <div class="container header-inner">
+      <a href="#home" class="brand" data-page="home">
+        <span class="brand-icon" aria-hidden="true">A</span>
+        <div>
+          <strong>AURA <span>MARKET</span></strong>
+          <small>AI Fashion &amp; Retail</small>
+        </div>
+      </a>
+
+      <div class="search-bar" role="search">
+        <input
+          type="search"
+          id="globalSearch"
+          data-i18n-placeholder="searchPlaceholder"
+          placeholder="Kiyim, oyoq kiyim, uslub yoki brend qidiring..."
+          aria-label="Kiyim, oyoq kiyim, uslub yoki brend qidiring"
+        />
+        <button type="button" id="globalSearchBtn" data-i18n="searchBtn">Qidirish</button>
+      </div>
+
+      <div class="header-tools">
+        <button type="button" class="tool-btn" id="openAuthBtn">
+          <span id="userLabel" data-i18n="loginBtn">Kirish</span>
+        </button>
+        <button type="button" class="tool-btn cart-btn" data-page="checkout">
+          <span data-i18n="cartBtn">Savat</span>
+          <strong id="headerCartCount">0</strong>
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="sub-nav" aria-label="Asosiy bo‘limlar">
+        <div class="container sub-nav-inner" id="pageNav">
+          <button type="button" class="nav-tab active" data-page="home" data-i18n="navCatalog">🛍️ Katalog</button>
+          <button type="button" class="nav-tab" data-page="virtual" data-i18n="navVirtual">✨ Virtual Olam</button>
+          <button type="button" class="nav-tab" data-page="visual-search" data-i18n="navVisual">📸 Rasmdan do‘kon topish</button>
+          <button type="button" class="nav-tab" data-page="branches" data-i18n="navBranches">📍 Filiallar &amp; Yetkazish</button>
+          <button type="button" class="nav-tab" data-page="checkout" data-i18n="navCheckout">💳 Rasmiylashtirish</button>
+          <button type="button" class="nav-tab" data-page="history" data-i18n="navHistory">🧾 To‘lov tarixi &amp; Cheklar</button>
+          <button type="button" class="nav-tab" id="adminNavBtn" data-page="admin">🛡️ Admin</button>
+          <button type="button" class="nav-tab" id="ordersNavBtn" data-page="orders">📦 Buyurtmalar</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= 1-SAHIFA: KATALOG ================= -->
+  <main class="page active" id="page-home">
+    <section class="container hero-banner">
+      <div class="hero-left">
+        <span class="pill-badge" data-i18n="heroBadge">Yangi avlod AI marketpleysi</span>
+        <h1 data-i18n="heroTitle">Rasmingizni yuklang — AI sizga mos kiyim, oyoq kiyim va rangni tanlaydi</h1>
+        <p data-i18n="heroDesc">
+          O‘lcham, tana tuzilishi, tadbir turi va mayda detallargacha hisobga oluvchi virtual kiyinish xonasi va smart katalog.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary" data-page="virtual" data-i18n="heroBtnVirtual">Virtual olamga kirish</button>
+          <button type="button" class="btn btn-glass" data-page="visual-search" data-i18n="heroBtnVisual">Rasm orqali do‘kon topish</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="floating-promo">
+          <div class="promo-chip" data-i18n="promoChip">0% Muddatli to‘lov</div>
+          <h3 data-i18n="promoTitle">Smart Fit Texnologiyasi</h3>
+          <p data-i18n="promoDesc">Bo‘y, vazn va teri rangiga mos tavsiya aniqligi 98%</p>
+          <div class="promo-stats">
+            <div><strong id="heroProductStat">16+</strong><span data-i18n="statProducts">Tovarlar</span></div>
+            <div><strong>14+</strong><span data-i18n="statBranches">Filiallar</span></div>
+            <div><strong>100%</strong><span data-i18n="statReceipt">Rasmiy chek</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-block">
+      <div class="section-top">
+        <h2 data-i18n="catalogHeading">Kengaytirilgan kiyim va oyoq kiyimlar katalogi</h2>
+        <div class="cat-pills" id="categoryFilter" role="group" aria-label="Kategoriyalar">
+          <button type="button" class="cat-pill active" data-cat="all" data-i18n="catAll">Barchasi</button>
+          <button type="button" class="cat-pill" data-cat="office" data-i18n="catOffice">Ofis &amp; Klassik</button>
+          <button type="button" class="cat-pill" data-cat="casual" data-i18n="catCasual">Kundalik &amp; Street</button>
+          <button type="button" class="cat-pill" data-cat="event" data-i18n="catEvent">Tadbir &amp; Oqshom</button>
+          <button type="button" class="cat-pill" data-cat="sport" data-i18n="catSport">Sport &amp; Aktiv</button>
+          <button type="button" class="cat-pill" data-cat="footwear" data-i18n="catFootwear">👟 Oyoq kiyimlar</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="catalogGrid"></div>
+    </section>
+  </main>
+
+  <!-- ================= 2-SAHIFA: VIRTUAL OLAM ================= -->
+  <main class="page" id="page-virtual">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">AI VIRTUAL DRESSING ROOM</span>
+          <h2 data-i18n="virtualHeading">Virtual Olam — Shaxsiy Stilist va Kiyib Ko‘rish</h2>
+        </div>
+        <p data-i18n="virtualSub">O‘z rasmingizni yuklang va qayerga, qanday uslubda kiyinmoqchi ekaningizni yozing.</p>
+      </div>
+
+      <div class="virtual-layout">
+        <form class="panel-card" id="virtualForm">
+          <h3 data-i18n="vStep1">1. O‘zingiz haqingizda ma’lumot</h3>
+
+          <div class="upload-box" id="userPhotoDrop">
+            <input type="file" id="userPhotoInput" accept="image/*" hidden />
+            <div>
+              <strong data-i18n="uploadTitle">📷 O‘zingizning rasmingizni yuklang</strong>
+              <p data-i18n="uploadDesc">Tizim teri ohangini tahlil qilib mos ranglarni tanlaydi va kiyimni ustingizda ko‘rsatadi</p>
+              <button type="button" class="btn btn-outline" id="triggerUserPhoto" data-i18n="choosePhotoBtn">Rasm tanlash</button>
+            </div>
+            <img id="userPhotoPreview" alt="Yuklangan foydalanuvchi rasmi" hidden />
+          </div>
+
+          <div class="form-row-3">
+            <div class="field">
+              <label for="userHeight" data-i18n="lblHeight">Bo‘yingiz (sm)</label>
+              <input type="number" id="userHeight" inputmode="numeric" value="176" min="140" max="220" required />
+            </div>
+            <div class="field">
+              <label for="userWeight" data-i18n="lblWeight">Vazningiz (kg)</label>
+              <input type="number" id="userWeight" inputmode="numeric" value="72" min="40" max="160" required />
+            </div>
+            <div class="field">
+              <label for="userSize" data-i18n="lblSize">O‘lchamingiz</label>
+              <select id="userSize">
+                <option value="S">S (44-46)</option>
+                <option value="M">M (48)</option>
+                <option value="L" selected>L (50)</option>
+                <option value="XL">XL (52)</option>
+                <option value="XXL">XXL (54+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="occasionSelect" data-i18n="lblOccasion">Qayerga kiymoqchisiz?</label>
+              <select id="occasionSelect">
+                <option value="office">Ofis / Ish / Muzokara</option>
+                <option value="casual" selected>Kundalik / Shahar / Sayr</option>
+                <option value="event">To‘y / Bazm / Rasmiy tadbir</option>
+                <option value="sport">Sport / Yugurish / Safar</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="fitPreference" data-i18n="lblFit">Qanday o‘tirishini xohlaysiz?</label>
+              <select id="fitPreference">
+                <option value="slim">Slim Fit</option>
+                <option value="regular" selected>Regular Fit</option>
+                <option value="oversized">Oversized</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label data-i18n="lblDetails">Mayda detallarga talabingiz:</label>
+            <div class="chips-check" id="detailChecks">
+              <label class="chip-option"><input type="checkbox" value="hood" /> Kapishonli</label>
+              <label class="chip-option"><input type="checkbox" value="pockets" checked /> Cho‘ntakli</label>
+              <label class="chip-option"><input type="checkbox" value="zipper" /> Zamokli</label>
+              <label class="chip-option"><input type="checkbox" value="buttons" /> Tugmali</label>
+              <label class="chip-option"><input type="checkbox" value="breathable" checked /> Havo o‘tkazuvchi</label>
+              <label class="chip-option"><input type="checkbox" value="waterproof" /> Suv o‘tkazmas</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="styleNotes" data-i18n="lblNotes">O‘zingiz haqingizda va xohishingiz haqida yozing</label>
+            <textarea
+              id="styleNotes"
+              rows="3"
+              placeholder="Masalan: Yelkalarim kengroq, kechki salqin havoda uchrashuvga kiymoqchiman..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary full-btn" data-i18n="analyzeBtn">
+            ✨ AI tahlil qilish va kiyimlarni chiqarish
+          </button>
+        </form>
+
+        <div class="virtual-stage-col">
+          <div class="panel-card tryon-card">
+            <div class="tryon-header">
+              <h3 data-i18n="vStep2">2. Virtual kiyib ko‘rish oynasi</h3>
+              <span class="tone-badge" id="detectedToneBadge">Tone: Neutral</span>
+            </div>
+
+            <div class="tryon-viewport" id="tryonViewport">
+              <img id="stageUserBg" class="stage-user-bg" alt="Virtual sahna foni" hidden />
+              <div class="virtual-garment-overlay" id="virtualGarmentOverlay">
+                <img id="garmentOverlayImg" class="garment-overlay-img" alt="Tanlangan mahsulot rasmi" />
+                <div class="garment-shape" id="garmentShape">
+                  <span id="garmentOverlayTitle">AeroTech Hoodie</span>
+                  <small id="garmentOverlayMeta">L • OVERSIZED</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="tryon-controls">
+              <div>
+                <label for="overlayScaleRange" data-i18n="scaleLabel">Kiyim o‘lchamini ekranda moslash:</label>
+                <input type="range" id="overlayScaleRange" min="70" max="135" value="100" />
+              </div>
+              <div>
+                <label data-i18n="paletteLabel">Mos rang palitrasi:</label>
+                <div class="recommended-swatches" id="recommendedSwatches"></div>
+              </div>
+            </div>
+
+            <div class="ai-explanation">
+              <h4 data-i18n="aiConclusionTitle">AI Stilist xulosasi:</h4>
+              <p id="aiExplanationText">
+                Parametrlaringizni kiriting yoki rasmingizni yuklang — tizim sizga eng mos kiyim va ranglarni saralaydi.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <h3 data-i18n="vStep3">3. Sizga eng mos kelgan kiyimlar</h3>
+            <div class="matched-list" id="matchedClothesList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 3-SAHIFA: RASMGA OLIB DO'KON TOPISH ================= -->
+  <main class="page" id="page-visual-search">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">VISUAL STORE LOCATOR</span>
+          <h2 data-i18n="visualHeading">Kiyimni rasmga oling — qaysi do‘konda borligini toping</h2>
+        </div>
+        <p data-i18n="visualSub">Kiyim rasmini yuklang — aynan shu turdagi kiyimlar qaysi do‘kon va filiallarda borligi chiqadi.</p>
+      </div>
+
+      <div class="visual-search-grid">
+        <div class="panel-card">
+          <h3 data-i18n="uploadClothTitle">Kiyim rasmini yuklang</h3>
+          <div class="upload-box">
+            <input type="file" id="clothSearchInput" accept="image/*" capture="environment" hidden />
+            <div>
+              <strong>📸 Kamera / Galereya</strong>
+              <p data-i18n="uploadClothDesc">Ko‘chada yoki internetda ko‘rgan kiyimingiz rasmini yuklang</p>
+              <button type="button" class="btn btn-primary" id="triggerClothSearch" data-i18n="uploadClothBtn">Rasm yuklash</button>
+            </div>
+            <img id="clothSearchPreview" alt="Qidirilayotgan kiyim rasmi" hidden />
+          </div>
+
+          <div class="sample-queries">
+            <p data-i18n="quickTestText">Tezkor test uchun tayyor kiyim yoki oyoq kiyim turini tanlang:</p>
+            <div class="sample-btns">
+              <button type="button" class="btn btn-outline sample-cloth-btn" data-type="office">Klassik Pijak</button>
+              <button type="button" class="btn btn-outline sample-cloth-btn" data-type="casual">Oversized Hoodie</button>
+              <button type="button" class="btn btn-outline sample-cloth-btn" data-type="event">Oqshom libosi</button>
+              <button type="button" class="btn btn-outline sample-cloth-btn" data-type="sport">Sport kurtka</button>
+              <button type="button" class="btn btn-outline sample-cloth-btn" data-type="footwear">Krossovka &amp; Tufli</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3 data-i18n="foundStoresTitle">Topilgan do‘konlar va filiallar</h3>
+          <p class="muted-text" id="visualSearchSummary"></p>
+          <div class="store-results" id="storeResultsList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 4-SAHIFA: FILIALLAR VA YETKAZIB BERISH ================= -->
+  <main class="page" id="page-branches">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">LOGISTICS &amp; PICKUP POINTS</span>
+          <h2 data-i18n="branchesHeading">Filiallarimiz va Yetkazib berish xizmati</h2>
+        </div>
+        <p data-i18n="branchesSub">Buyurtmani kuryer orqali eshigingizgacha yoki o‘zingizga yaqin filialdan kiyib ko‘rib olib keting.</p>
+      </div>
+
+      <div class="branches-grid" id="branchesGrid"></div>
+    </section>
+  </main>
+
+  <!-- ================= 5-SAHIFA: RASMIYLASHTIRISH VA TO'LOV ================= -->
+  <main class="page" id="page-checkout">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">SECURE CHECKOUT</span>
+          <h2 data-i18n="checkoutHeading">Buyurtmani rasmiylashtirish va To‘lov</h2>
+        </div>
+        <p data-i18n="checkoutSub">Mijoz ma’lumotlarini to‘ldiring, yetkazib berish va to‘lov usulini tanlang.</p>
+      </div>
+
+      <div class="checkout-layout">
+        <div class="panel-card">
+          <h3 data-i18n="selectedItemsTitle">Tanlangan mahsulotlar</h3>
+          <div id="checkoutCartList" class="checkout-cart-list"></div>
+          <div class="checkout-totals">
+            <div><span data-i18n="itemsCountLbl">Mahsulotlar soni:</span><strong id="checkoutCount">0</strong></div>
+            <div><span data-i18n="deliveryLbl">Yetkazib berish:</span><strong id="deliveryFeeText">0 so‘m</strong></div>
+            <div class="grand-total"><span data-i18n="totalPayLbl">Jami to‘lov:</span><strong id="checkoutTotalSum">0 so‘m</strong></div>
+          </div>
+        </div>
+
+        <form class="panel-card" id="checkoutForm">
+          <h3 data-i18n="customerFormTitle">Mijoz va Yetkazib berish ma’lumotlari</h3>
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="custName" data-i18n="lblFullName">F.I.Sh *</label>
+              <input type="text" id="custName" placeholder="Karimov Azizbek" required />
+            </div>
+            <div class="field">
+              <label for="custPhone" data-i18n="lblPhone">Telefon raqamingiz *</label>
+              <input type="tel" id="custPhone" inputmode="tel" placeholder="+998 90 123 45 67" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="custRegion" data-i18n="lblRegion">Shahar / Viloyat *</label>
+              <select id="custRegion" required>
+                <option value="Toshkent shahri">Toshkent shahri</option>
+                <option value="Samarqand viloyati">Samarqand viloyati</option>
+                <option value="Buxoro viloyati">Buxoro viloyati</option>
+                <option value="Farg‘ona viloyati">Farg‘ona viloyati</option>
+                <option value="Andijon viloyati">Andijon viloyati</option>
+                <option value="Namangan viloyati">Namangan viloyati</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="deliveryType" data-i18n="lblDeliveryType">Yetkazib berish usuli *</label>
+              <select id="deliveryType">
+                <option value="pickup">Filialdan olib ketish (0 so‘m)</option>
+                <option value="courier">Kuryer orqali uyga (25 000 so‘m)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="branchSelectWrap">
+            <label for="pickupBranchSelect" data-i18n="lblPickupBranch">Filialni tanlang</label>
+            <select id="pickupBranchSelect"></select>
+          </div>
+
+          <div class="field" id="addressWrap" hidden>
+            <label for="custAddress" data-i18n="lblAddress">To‘liq manzil</label>
+            <input type="text" id="custAddress" placeholder="Chilonzor 9-kvartal, 14-uy" />
+          </div>
+
+          <div class="field">
+            <label data-i18n="lblPayMethod">To‘lov turini tanlang *</label>
+            <div class="payment-methods">
+              <label class="pay-card">
+                <input type="radio" name="paymentMethod" value="card" checked />
+                <div>
+                  <strong data-i18n="payCardTitle">💳 Karta orqali</strong>
+                  <small>Uzcard, Humo, Visa</small>
+                </div>
+              </label>
+              <label class="pay-card">
+                <input type="radio" name="paymentMethod" value="cash" />
+                <div>
+                  <strong data-i18n="payCashTitle">💵 Naqd pul</strong>
+                  <small data-i18n="payCashSub">Qabul qilganda to‘lash</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div id="cardDetailsBox" class="card-details-box">
+            <div class="form-row-2">
+              <div class="field">
+                <label for="cardNumber">Karta raqami</label>
+                <input type="text" id="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="8600 •••• •••• 1234" maxlength="19" />
+              </div>
+              <div class="field">
+                <label for="cardExpiry">Muddati</label>
+                <input type="text" id="cardExpiry" inputmode="numeric" autocomplete="cc-exp" placeholder="09/29" maxlength="5" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary full-btn" data-i18n="confirmOrderBtn">
+            Buyurtmani tasdiqlash va Chek olish
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 6-SAHIFA: TO'LOV TARIXI VA CHEKLAR ================= -->
+  <main class="page" id="page-history">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">RECEIPTS &amp; TRANSACTIONS</span>
+          <h2 data-i18n="historyHeading">To‘lovlar tarixi va Rasmiy elektron cheklar</h2>
+        </div>
+        <p data-i18n="historySub">Har bir xaridingiz uchun fiskal chek raqami va holati saqlanadi.</p>
+      </div>
+
+      <div class="receipts-grid" id="receiptsGrid"></div>
+    </section>
+  </main>
+
+  <!-- ================= 7-SAHIFA: ADMIN PANEL ================= -->
+  <main class="page" id="page-admin">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">ADMIN CONTROL PANEL</span>
+          <h2>Admin Sahifasi — Mahsulotlar &amp; Ro‘yxatdan o‘tganlar</h2>
+        </div>
+        <button type="button" class="btn btn-outline" id="lockAdminBtn">🔒 Admin paneldan chiqish</button>
+      </div>
+
+      <div class="panel-card" style="margin-bottom: 18px;">
+        <h3>➕ Yangi kiyim yoki oyoq kiyim qo‘shish</h3>
+        <form id="adminAddProductForm" class="admin-add-form">
+          <div class="form-row-3">
+            <div class="field">
+              <label for="newProdName">Nomi *</label>
+              <input type="text" id="newProdName" placeholder="Masalan: AirMax Runner" required />
+            </div>
+            <div class="field">
+              <label for="newProdCategory">Kategoriya *</label>
+              <select id="newProdCategory">
+                <option value="office">Ofis &amp; Klassik</option>
+                <option value="casual">Kundalik &amp; Street</option>
+                <option value="event">Tadbir &amp; Oqshom</option>
+                <option value="sport">Sport &amp; Aktiv</option>
+                <option value="footwear">Oyoq kiyimlar</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="newProdPrice">Narxi (so‘m) *</label>
+              <input type="number" id="newProdPrice" placeholder="390000" min="10000" required />
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="field">
+              <label for="newProdMaterial">Material &amp; O‘lcham haqida ma’lumot</label>
+              <input type="text" id="newProdMaterial" placeholder="Masalan: Tabiiy zamsh, 39-44 o‘lcham, yumshoq taglik" />
+            </div>
+            <div class="field">
+              <label for="newProdColor">Rang kodi</label>
+              <input type="color" id="newProdColor" value="#8b5cf6" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="newProdDesc">To‘liq tavsif *</label>
+            <input type="text" id="newProdDesc" placeholder="Kiyim yoki oyoq kiyimning afzalliklari va qulayligi..." required />
+          </div>
+          <button type="submit" class="btn btn-primary">💾 Katalogga qo‘shish</button>
+        </form>
+      </div>
+
+      <div class="panel-card">
+        <div class="admin-summary">
+          <div>
+            <span>Jami ro‘yxatdan o‘tganlar:</span>
+            <strong id="adminUsersCount">0</strong>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>F.I.Sh</th>
+                <th>Telefon</th>
+                <th>Vaqt</th>
+                <th>Amal</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 8-SAHIFA: BUYURTMALAR (KIM NIMA ZAKAZ QILGANI) ================= -->
+  <main class="page" id="page-orders">
+    <section class="container section-block">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">CUSTOMER ORDERS MONITOR</span>
+          <h2>Buyurtmalar Sahifasi — Mijozlar nima zakaz qilgani</h2>
+        </div>
+        <p>Mijoz saytdan buyurtma berganda uning ismi, telefoni, manzili, olgan kiyim/oyoq kiyimi va summasi shu yerda ko‘rinadi.</p>
+      </div>
+
+      <div class="orders-stats-row">
+        <div class="panel-card orders-kpi">
+          <span>Jami buyurtmalar</span>
+          <strong id="ordersTotalCount">0</strong>
+        </div>
+        <div class="panel-card orders-kpi">
+          <span>Jami tushum</span>
+          <strong id="ordersTotalRevenue">0 so‘m</strong>
+        </div>
+        <div class="panel-card orders-kpi">
+          <span>Karta orqali</span>
+          <strong id="ordersCardCount">0</strong>
+        </div>
+        <div class="panel-card orders-kpi">
+          <span>Naqd pul</span>
+          <strong id="ordersCashCount">0</strong>
+        </div>
+      </div>
+
+      <div class="panel-card" id="ordersMonitorList"></div>
+    </section>
+  </main>
+
+  <!-- ================= MAHSULOT BATAFSIL MA'LUMOTI MODALI ================= -->
+  <div class="modal-backdrop" id="productDetailBackdrop" aria-hidden="true"></div>
+  <div class="modal-box detail-modal-box" id="productDetailModal" role="dialog" aria-modal="true" aria-labelledby="productDetailTitle">
+    <div class="modal-head">
+      <h3 id="productDetailTitle">Mahsulot ma’lumoti</h3>
+      <button type="button" class="close-btn" id="closeProductDetailBtn" aria-label="Yopish">✕</button>
+    </div>
+    <div id="productDetailBody"></div>
+  </div>
+
+  <!-- ================= ADMIN PAROL MODALI ================= -->
+  <div class="modal-backdrop" id="adminAuthBackdrop" aria-hidden="true"></div>
+  <div class="modal-box" id="adminAuthModal" role="dialog" aria-modal="true" aria-labelledby="adminAuthTitle">
+    <div class="modal-head">
+      <h3 id="adminAuthTitle">🛡️ Admin Kirish</h3>
+      <button type="button" class="close-btn" id="closeAdminAuthBtn" aria-label="Yopish">✕</button>
+    </div>
+    <form id="adminAuthForm">
+      <div class="field">
+        <label for="adminPassInput">Admin parolini kiriting *</label>
+        <input type="password" id="adminPassInput" placeholder="Parolni kiriting (masalan: aura2026)" required />
+      </div>
+      <button type="submit" class="btn btn-primary full-btn">Kirish</button>
+    </form>
+  </div>
+
+  <!-- ================= REGISTRATSIYA MODALI ================= -->
+  <div class="modal-backdrop" id="authBackdrop" aria-hidden="true"></div>
+  <div class="modal-box" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-head">
+      <h3 id="authModalTitle" data-i18n="authTitle">Ro‘yxatdan o‘tish / Kirish</h3>
+      <button type="button" class="close-btn" id="closeAuthBtn" aria-label="Yopish">✕</button>
+    </div>
+    <form id="authForm">
+      <div class="field">
+        <label for="regName" data-i18n="lblFullName">Ism va familiyangiz *</label>
+        <input type="text" id="regName" autocomplete="name" placeholder="Malika Olimova" required />
+      </div>
+      <div class="field">
+        <label for="regPhone" data-i18n="lblPhone">Telefon raqamingiz *</label>
+        <input type="tel" id="regPhone" inputmode="tel" autocomplete="tel" placeholder="+998 90 123 45 67" required />
+      </div>
+      <button type="submit" class="btn btn-primary full-btn" data-i18n="saveLoginBtn">Saqlash va Kirish</button>
+    </form>
+  </div>
+
+  <!-- ================= CHEK MODALI ================= -->
+  <div class="modal-backdrop" id="receiptBackdrop" aria-hidden="true"></div>
+  <div class="modal-box" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+    <div class="modal-head">
+      <h3 id="receiptModalTitle" data-i18n="receiptModalTitle">Elektron Fiskal Chek</h3>
+      <button type="button" class="close-btn" id="closeReceiptBtn" aria-label="Yopish">✕</button>
+    </div>
+    <div id="receiptModalBody"></div>
+    <button type="button" class="btn btn-outline full-btn" id="printReceiptBtn" style="margin-top: 14px;" data-i18n="printBtn">
+      🖨️ Chekni chop etish / PDF
+    </button>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>AURA MARKET</strong>
+        <p data-i18n="footerTagline">AI Virtual Olam &amp; Smart Shopping ekotizimi.</p>
+      </div>
+      <div class="footer-links">
+        <button type="button" class="link-btn" data-page="virtual" data-i18n="navVirtual">Virtual Olam</button>
+        <button type="button" class="link-btn" data-page="branches" data-i18n="navBranches">Filiallar</button>
+        <button type="button" class="link-btn" data-page="history" data-i18n="navHistory">Cheklar</button>
+        <button type="button" class="link-btn" data-page="orders">📦 Buyurtmalar</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
